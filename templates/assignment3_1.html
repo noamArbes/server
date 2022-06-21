@@ -1,0 +1,52 @@
+{% include('style.html') %}
+{% extends 'basePage.html' %}
+
+{% block tohen %}
+
+<head>
+    <title>Our Flowers</title>
+</head>
+           <div class="Button_List">
+                <a class="showFlowers" href="/clear">Show All Flowers</a>
+                <a class="showFlowers" href="/return_toHome">Return to Home Page</a>
+            </div>
+
+<body class="home" >
+        <div class="main">
+            <div class="title">
+                <h3>Our Flowers</h3>
+            </div>
+        </div>
+<form class="flower_form" action="/catalog">
+        <input  class="searchField" type="text" name="flower_name" placeholder="Flower Name" >
+        <input class="btnSearchField" type="submit" value="Find">
+    </form>
+
+{% if flower_name %}
+     <div class="searchRes">
+         <h3 class="displayRes">{{ flower_name | upper() }}</h3>
+        <h3 class="displayRes">Price: {{ flower_price }}</h3>
+        <h3 class="displayRes">Color: {{ flower_color }}</h3>
+        <h3 class="displayRes">Size: {{ flower_size | lower()}}</h3>
+     </div>
+    {% endif %}
+
+    {% if message %}
+        <h3 class="message" >{{ message }}</h3>
+    {% endif %}
+
+    {% if catalog_dict %}
+        <ol >
+            {% for k, v in catalog_dict.items() %}
+                <li><h2 >Name: {{ k }}</h2></li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</body>
+{% endblock %}
+
+    {% block header%}  {{ super() }}
+    <div class="header_list2">
+        <h1 class="header_message"> Have a fantastic day! </h1>
+    </div>
+    {%endblock%}

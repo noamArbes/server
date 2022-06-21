@@ -1,0 +1,38 @@
+{% include('style.html') %}
+{% extends 'basePage.html' %}
+
+{% block tohen %}
+<head>
+
+    <title>Contact us-Noam's flowers</title>
+
+
+</head>
+
+<body class="home" onload="greet('message'); markTab()">
+    <div class="container">
+        <div class="contactBox">
+            <div class="left"></div>
+               <div class="right">
+
+                <h2>Contact Us</h2>
+                <input type="text" class="field" placeholder="Your Name" required maxlength="50">
+                <input type="email" class="field"  placeholder="Your Email">
+                <input type="tel" class="field" placeholder="Your Phone">
+                <input type="text" class="field" placeholder="Delivery Date" onfocus="(this.type='date')" >
+                <label for="agree" style="color: rgb(110, 177, 177) ;">I agree to the terms</label>
+                <input type="checkbox" id="agree" name="agree">
+                <button class="btn">Send</button>
+                <label id="message"></label>
+
+               </div>
+
+           </div>
+       </div>
+</body>
+ {% endblock %}
+    {% block header%}  {{ super() }}
+    <div class="header_list2">
+        <h1 class="header_message"> Have a nice day! </h1>
+    </div>
+    {%endblock%}

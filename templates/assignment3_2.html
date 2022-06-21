@@ -1,0 +1,73 @@
+{% include('style.html') %}
+{% extends 'basePage.html' %}
+
+
+{% block tohen %}
+<head>
+    <title>Log In</title>
+     <script defer src="../static/js_ex2.js"></script>
+
+</head>
+<body class="home" >
+
+        <div class="main">
+            <div class="title">
+                {% if session['logedin'] %}
+                    <h3 >Hi {{ session['username'] }} !</h3>
+                {% else %}
+                <h3>Log In</h3>
+                {% endif %}
+            </div>
+        </div>
+
+
+
+    {% if session['logedin'] %}
+        <div class="Button_List"> <a class="showFlowers" href="/logOut">Log Out</a> </div>
+    {% else %}
+        {% if logIn_message %}
+            <h3 class = "message">{{ logIn_message }}</h3>
+        {% endif %}
+        <form  class="searchForm" action="/logIn" method="post">
+            <input  class="searchField" type="text" name="username" placeholder="Username">
+            <input class="searchField" type="password" name="password" placeholder="Password">
+            <input  class="btnSearchField" type="submit" value="Log In">
+        </form>
+    {% endif %}
+
+
+
+    <form class="searchForm" action="/user_search" >
+        <input class="searchField" type="text" name="user_name" placeholder="Search by Username"><br>
+        <input  class="btnSearchField" type="submit" value="Search">
+    </form>
+
+    {% if user_name %}
+        <div class="searchForm">
+            <h2 class="displayRes">{{ user_name | upper() }}</h2>
+            <h3 class="displayRes" >Name: {{ name }}</h3>
+            <h3 class="displayRes" >Email: {{ email}}</h3>
+        </div>
+
+    {% endif %}
+
+    {% if message %}
+        <h3 class="message" >{{ message }}</h3>
+    {% endif %}
+
+    {% if user_dict %}
+        <ol>
+            {% for k, v in user_dict.items() %}
+                <li class="list"><h3 class="message"> {{k, v }}</h3></li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+ </body>
+{% endblock %}
+
+    {% block header%}  {{ super() }}
+    <div class="header_list2">
+        <h1 class="header_message"> Have a wonderful day! </h1>
+    </div>
+    {%endblock%}
