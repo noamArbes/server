@@ -35,6 +35,18 @@
         </form>
     {% endif %}
 
+        {% if user_name %}
+        <div class="searchForm">
+            <h2 class="displayRes">{{ user_name | upper() }}</h2>
+            <h3 class="displayRes" >Name: {{ name }}</h3>
+            <h3 class="displayRes" >Email: {{ email}}</h3>
+        </div>
+        {% endif %}
+
+    {% if message %}
+        <h3 class="message" >{{ message }}</h3>
+    {% endif %}
+
 
 
     <form class="searchForm" action="/user_search" >
@@ -42,18 +54,7 @@
         <input  class="btnSearchField" type="submit" value="Search">
     </form>
 
-    {% if user_name %}
-        <div class="searchForm">
-            <h2 class="displayRes">{{ user_name | upper() }}</h2>
-            <h3 class="displayRes" >Name: {{ name }}</h3>
-            <h3 class="displayRes" >Email: {{ email}}</h3>
-        </div>
 
-    {% endif %}
-
-    {% if message %}
-        <h3 class="message" >{{ message }}</h3>
-    {% endif %}
 
     {% if user_dict %}
         <ol>

@@ -4,6 +4,14 @@ from flask import render_template
 from datetime import timedelta
 from flask import request, session, jsonify
 
+import mysql.connector
+import time
+import requests
+import asyncio
+import aiohttp
+
+
+
 app = Flask(__name__)
 
 app.secret_key = '123'
@@ -53,34 +61,35 @@ def catalog_func():
 
 
 user_dict = {
-'Alon95': {'name': 'Alon', 'email': 'alon@gmail.com'},
-'Guy21': {'name': 'Guy', 'email': 'guy@gmail.com'},
-'Dana96': {'name': 'Dana', 'email': 'dana@gmail.com'},
-'Noam1': {'name': 'Noam', 'email': 'noam@gmail.com'},
-'LiorY': {'name': 'Lior', 'email': 'lior@gmail.com'}
+'Alon95': {'name': 'Alon', 'email': 'alon@gmail.com', 'password': '1114'},
+'Guy21': {'name': 'Guy', 'email': 'guy@gmail.com', 'password': '1112'},
+'Dana96': {'name': 'Dana', 'email': 'dana@gmail.com','password': '1113'},
+'Noam1': {'name': 'Noam', 'email': 'noam@gmail.com','password': '1111'},
+'LiorY': {'name': 'Lior', 'email': 'lior@gmail.com','password': '1115'}
 }
 
-
-logIn_dict = {
-    'Noam': '1111',
-    'Guy': '1112',
-    'Dana': '1113',
-    'Alon': '1114',
-    'Yossi': '1115'
-
-}
+#
+# logIn_dict = {
+#     'Noam1': '1111',
+#     'Guy21': '1112',
+#     'Dana96': '1113',
+#     'Alon95': '1114',
+#     'LiorY': '1115'
+#
+# }
 @app.route('/logIn', methods=['GET', 'POST'])
 def logIn_func():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username in logIn_dict:
-            pas_in_dict = logIn_dict[username]
+        if username in user_dict:
+            pas_in_dict = user_dict[username]['password']
             if pas_in_dict == password:
                 session['username'] = username
                 session['logedin'] = True
                 return render_template('assignment3_2.html',
-                                       username=username)
+                                       username=username
+                                       )
             else:
                 return render_template('assignment3_2.html',
                                        logIn_message='Wrong password!')
