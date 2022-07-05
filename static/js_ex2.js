@@ -1,14 +1,14 @@
 
-  function markTab(){
-    for (var i = 0; i+2 < document.links.length; i++) {
-        if (document.links[i].href === document.URL) {
-            current = i;
-        }
-    }
-    document.links[current].className = 'current';
-       
-  }
- 
+  // function markTab(){
+  //   for (var i = 0; i < document.links.length; i++) {
+  //       if (document.links[i].href === document.URL) {
+  //           current = i;
+  //       }
+  //   }
+  //   document.links[current].className = 'current';
+  //
+  // }
+  //
 
 
 function greet(val){
@@ -42,6 +42,21 @@ else{
 }
 
 }
+
+document.querySelector('#outer-source__form')?.addEventListener('submit',(e)=> {
+    e.preventDefault()
+    const id = e.target.id.value
+    fetch('https://reqres.in/api/users/' + id)
+        .then(results => results.json())
+        .then(json => {
+            const  image = document.querySelector('#outer-source__image1')
+             image.classList.remove('invisible')
+             image.src = json.data.avatar
+        })
+        .catch((e) => {
+        console.log(e)
+        })
+})
 
 
 

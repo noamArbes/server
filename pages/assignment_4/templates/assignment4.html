@@ -1,0 +1,154 @@
+{% extends 'basePage.html' %}
+
+
+{% block tohen %}
+    <title>Users-Noam's flowers</title>
+    <body class="home" onload="greet('lblGreetings'); markTab()">
+    <h3  class="title">Users Page</h3>
+    <div class="Button_List">  <a class="showFlowers" href="/users">Show with JSON</a></div>
+    <div class="container_4" id="first_container">
+        <div class="contactBox_4">
+            <h2>Insert Form</h2>
+            <div class="right_4">
+                <form action="/insert_user" method="post" class="searchForm_4">
+                    <input class="field" type="int" name="id" placeholder="ID">
+                    <input class="field" type="text" name="username" placeholder="Username">
+                    <input class="field" type="text" name="name" placeholder="Name">
+                    <input class="field" type="email" name="email" placeholder="Email">
+                    <input class="field" type="password" name="password" placeholder="Insert password">
+                    <input class="btn" type="submit" value="Create">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container_4">
+        <div class="contactBox_4">
+            <h2>Update Form</h2>
+            <div class="right_4">
+                <form action="/update_user" method="post" class="searchForm_4">
+                    <input class="field" type="text" name="username" placeholder="Username">
+                    <input class="field" type="text" name="name" placeholder="Name">
+                    <input class="field" type="email" name="email" placeholder="Email">
+                    <input class="field" type="password" name="password" placeholder="Insert password">
+                    <input class="btn" type="submit" value="Update">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container_4">
+        <div class="contactBox_4">
+            <h2>Delete Form</h2>
+            <div class="right_4">
+                <form action="/delete_user" method="post" class="searchForm_4">
+                    <input class="searchField" type="text" name="username" placeholder="Username">
+                    <input class="btnSearchField" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% if message_u %}
+        <h3 class="message">{{ message_u }} </h3>
+    {% endif %}
+    {% if message_i %}
+        <h3 class="message">{{ message_i }} </h3>
+    {% endif %}
+
+    {% for user in users %}
+        <div class="align">
+            <h3 class="message">Username: {{ user.username }}</h3>
+            <h3 class="message"> Name : {{ user.name }}</h3>
+            <h4 class="message">Email: {{ user.email }}</h4>
+        </div>
+    {% endfor %}
+
+
+
+
+    <div class="container_4">
+        <div class="contactBox_4">
+            <h2>Outer Source Form (Frontend)</h2>
+            <div class="right_4">
+                <form id="outer-source__form">
+                    <input class="searchField" type="text" name="id" placeholder="Insert ID (1-12)" required>
+                    <input class="btnSearchField " type="submit" value="Search">
+                </form>
+                <div class="outer-source__image-container">
+                    <img id="outer-source__image1" class="invisible" src="" alt="image" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container_4">
+        <div class="contactBox_4">
+            <h2>Outer Source Form (Backend)</h2>
+            <div class="right_4">
+        <form action="/outer_source" method="post">
+            <input class="searchField" type="text" name="id" placeholder="Insert ID (1-12)" required>
+            <input class="btnSearchField" type="submit" value="Search">
+        </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    {#<div>#}
+    {#    <h2 class="center">Outer Source Form (Frontend)</h2>#}
+    {#        <form id="outer-source__form">#}
+    {#            <input type="text" name="id" placeholder="Insert ID (1-12)" required>#}
+    {#            <input type="submit" value="Search">#}
+    {#        </form>#}
+    {#</div>#}
+    {##}
+    {##}
+    {#<div class="outer-source__image-container">#}
+    {#    <img id="outer-source__image1" class="invisible" src="" alt="image" />#}
+    {#</div>#}
+
+
+{#    <div>#}
+{#        <h2 class="center">Outer Source Form (Backend)</h2>#}
+{#        <form action="/outer_source" method="post">#}
+{#            <input type="text" name="id" placeholder="Insert ID (1-12)" required>#}
+{#            <input type="submit" value="Search">#}
+{#        </form>#}
+{#    </div>#}
+
+    <div>
+        {% if user_from_api %}
+            <h3 class="message"> {{ user_from_api["first_name"] }} </h3>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+
+    </body >
+
+
+{% endblock %}
+{% block header%}  {{ super() }}
+    <div class="header_list2">
+        <h1 class="header_message"> Exercise 4 and last </h1>
+    </div>
+{%endblock%}
+
+
+
+

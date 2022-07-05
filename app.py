@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template
 from flask import url_for
-from flask import render_template
+from flask import Blueprint, render_template
 from datetime import timedelta
 from flask import request, session, jsonify
 
@@ -9,10 +9,14 @@ import time
 import requests
 import asyncio
 import aiohttp
-
+import random
+from pages.assignment_4.assignment_4 import assignment_4
 
 
 app = Flask(__name__)
+
+from pages.assignment_4.assignment_4 import assignment_4
+app.register_blueprint(assignment_4)
 
 app.secret_key = '123'
 app.config['SESSION_PERMANENT'] = True
@@ -68,15 +72,7 @@ user_dict = {
 'LiorY': {'name': 'Lior', 'email': 'lior@gmail.com','password': '1115'}
 }
 
-#
-# logIn_dict = {
-#     'Noam1': '1111',
-#     'Guy21': '1112',
-#     'Dana96': '1113',
-#     'Alon95': '1114',
-#     'LiorY': '1115'
-#
-# }
+
 @app.route('/logIn', methods=['GET', 'POST'])
 def logIn_func():
     if request.method == 'POST':
@@ -139,3 +135,9 @@ def returnHome_func():
 @app.route('/session')
 def session_func():
     return jsonify(dict(session))
+
+
+
+# ------------------------------------------------- #
+# ------------- DATABASE CONNECTION --------------- #
+# ------------------------------------------------- #

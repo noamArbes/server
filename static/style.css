@@ -13,7 +13,7 @@
 }
 .header_list2{
     grid-area: nav;
-    margin-top: 55px;
+    margin-top: -25px;
     margin-left: 995px;
 }
 
@@ -39,12 +39,11 @@ header h1{
 
 .home{
 background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../static/background_flower.jpg);
-height: 100vh;
+height: 100%;
 width: 100%;
 background-size: cover;
 background-position: center;
-display: grid;
-grid-template-areas: 'nav nav nav' 'main main main' 'sentence sentence sentence' ;
+
 }
 
 
@@ -88,15 +87,31 @@ ul li a:hover{
     top: 20%;
     grid-area: title;
     color:rgb(236, 195, 217);
-    font-size: 40px ;
+    font-size: 40px;
 }
+.semiTitle{
 
+    width: 100%;
+    text-align: center;
+    color: #caf1ea;
+    font-size: 30px;
+    font-weight: 200;
+
+}
 .searchForm{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-right: 50px;
-    margin-left: 200px;
+    margin-bottom: 80px;
+    margin-top: 200px;
+}
+.searchForm_4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 50px;
+    margin-bottom: 80px;
 }
 
 .flower_form{
@@ -104,7 +119,8 @@ ul li a:hover{
     flex-direction: column;
     align-items: center;
     padding-right: 100px;
-    margin-left: 500px;
+    margin-top: 300px;
+    margin-left: 60px;
 }
 
 
@@ -114,11 +130,14 @@ ul li a:hover{
     margin-left: 270px; 
 }
 .Button_List{
-    grid-area: nav;
-    margin-top: 25px;
+    margin-top: -95px;
     margin-left: 830px;
 }
 
+.align
+{
+    margin-left: 43%;
+}
 .showFlowers{
     text-decoration: none;
     color: #fff;
@@ -126,7 +145,6 @@ ul li a:hover{
     border: 1px solid #fff;
     transition: 0.4s ease;
     background-color: rgba(236, 195, 217, 0.6);
-    margin-bottom: 25px;
     height: 30px;
     width: 180px;
     list-style-type: none;
@@ -145,7 +163,7 @@ ul li a:hover{
     cursor: pointer;
     border-radius: 30px;
     border: 1.5px solid ;
-} 
+}
 
 
 .searchField{
@@ -181,8 +199,7 @@ ul li a:hover{
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 20px 100px;
-    margin-left:25% ;
+    margin-top: -80px;
 }
  .container::after{
      content: '';
@@ -197,6 +214,34 @@ ul li a:hover{
     filter: blur(50px);
 
  }
+
+.container_4{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 45px;
+}
+
+#first_container{
+    margin-top: 170px;
+}
+
+
+.contactBox_4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(249, 253, 252, 0.6);
+    box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
+}
+
+
 
 .contactBox{ 
     max-width: 850px;
@@ -219,6 +264,11 @@ ul li a:hover{
 
 .right{
     padding: 25px 40px;
+
+}
+.right_4{
+     padding-left: 40px;
+
 
 }
 

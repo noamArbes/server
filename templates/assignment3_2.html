@@ -3,13 +3,12 @@
 
 
 {% block tohen %}
-<head>
+
+
+
+
+<body class="home" onload="greet('lblGreetings'); markTab()">
     <title>Log In</title>
-     <script defer src="../static/js_ex2.js"></script>
-
-</head>
-<body class="home" >
-
         <div class="main">
             <div class="title">
                 {% if session['logedin'] %}
@@ -19,7 +18,6 @@
                 {% endif %}
             </div>
         </div>
-
 
 
     {% if session['logedin'] %}
@@ -48,12 +46,10 @@
     {% endif %}
 
 
-
     <form class="searchForm" action="/user_search" >
         <input class="searchField" type="text" name="user_name" placeholder="Search by Username"><br>
         <input  class="btnSearchField" type="submit" value="Search">
     </form>
-
 
 
     {% if user_dict %}

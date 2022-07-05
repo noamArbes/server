@@ -1,26 +1,31 @@
 {% include('style.html') %}
 {% extends 'basePage.html' %}
 
-{% block tohen %}
 
-<head>
-    <title>Our Flowers</title>
-</head>
-           <div class="Button_List">
+<title>Our Flowers</title>
+{% block tohen %}
+    <div class="Button_List">
                 <a class="showFlowers" href="/clear">Show All Flowers</a>
                 <a class="showFlowers" href="/return_toHome">Return to Home Page</a>
             </div>
+<head>
+    <title>Our Flowers</title>
+</head>
 
-<body class="home" >
+<body class="home" onload="greet('lblGreetings'); markTab()" >
+
         <div class="main">
             <div class="title">
                 <h3>Our Flowers</h3>
             </div>
         </div>
-<form class="flower_form" action="/catalog">
+
+          <form class="flower_form" action="/catalog">
         <input  class="searchField" type="text" name="flower_name" placeholder="Flower Name" >
         <input class="btnSearchField" type="submit" value="Find">
     </form>
+
+
 
 {% if flower_name %}
      <div class="searchRes">
