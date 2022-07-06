@@ -81,7 +81,7 @@ def update_user_func():
                 query = "UPDATE users SET name='%s', email = '%s', password = '%s' where username = '%s'" % (
                  name, email, password, username1)
                 interact_db(query=query, query_type='commit')
-                return redirect('/assignment_4')
+                return render_template('assignment4.html', message_i='user details updated', users=users_list)
 
 
 
