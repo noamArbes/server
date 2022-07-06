@@ -101,32 +101,6 @@
     </div>
 
 
-
-
-
-
-    {#<div>#}
-    {#    <h2 class="center">Outer Source Form (Frontend)</h2>#}
-    {#        <form id="outer-source__form">#}
-    {#            <input type="text" name="id" placeholder="Insert ID (1-12)" required>#}
-    {#            <input type="submit" value="Search">#}
-    {#        </form>#}
-    {#</div>#}
-    {##}
-    {##}
-    {#<div class="outer-source__image-container">#}
-    {#    <img id="outer-source__image1" class="invisible" src="" alt="image" />#}
-    {#</div>#}
-
-
-{#    <div>#}
-{#        <h2 class="center">Outer Source Form (Backend)</h2>#}
-{#        <form action="/outer_source" method="post">#}
-{#            <input type="text" name="id" placeholder="Insert ID (1-12)" required>#}
-{#            <input type="submit" value="Search">#}
-{#        </form>#}
-{#    </div>#}
-
     <div>
         {% if user_from_api %}
             <h3 class="message"> {{ user_from_api["first_name"] }} </h3>
