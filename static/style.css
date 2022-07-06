@@ -74,10 +74,10 @@ ul li a:hover{
 .message{
     display: flex;
     flex-direction: column;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 300;
-    padding-top: 15px;
+    color: white;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: 500;
 
 
 }

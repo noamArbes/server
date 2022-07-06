@@ -5,7 +5,13 @@
     <title>Users-Noam's flowers</title>
     <body class="home" onload="greet('lblGreetings'); markTab()">
     <h3  class="title">Users Page</h3>
-    <div class="Button_List">  <a class="showFlowers" href="/users">Show with JSON</a></div>
+    <div class="Button_List">  <a class="showFlowers" href="/users">Show with JSON</a>
+                    {% if message_u %}
+        <h3 class="message">{{ message_u }} </h3>
+    {% endif %}
+    {% if message_i %}
+        <h3 class="message">{{ message_i }} </h3>
+    {% endif %}</div>
     <div class="container_4" id="first_container">
         <div class="contactBox_4">
             <h2>Insert Form</h2>
@@ -54,12 +60,6 @@
 
 
 
-    {% if message_u %}
-        <h3 class="message">{{ message_u }} </h3>
-    {% endif %}
-    {% if message_i %}
-        <h3 class="message">{{ message_i }} </h3>
-    {% endif %}
 
     {% for user in users %}
         <div class="align">
@@ -106,11 +106,6 @@
             <h3 class="message"> {{ user_from_api["first_name"] }} </h3>
         {% endif %}
     </div>
-
-
-
-
-
 
 
     </body >
